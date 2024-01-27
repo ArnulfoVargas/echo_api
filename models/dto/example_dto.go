@@ -1,4 +1,4 @@
-package dto_example
+package dto
 
 type Category struct {
   Name string `json:"name"`

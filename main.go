@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 
+	"github.com/ArnulfoVargas/echo_api/database"
 	"github.com/ArnulfoVargas/echo_api/routes"
 	"github.com/joho/godotenv"
 	echo "github.com/labstack/echo/v4"
@@ -11,7 +12,13 @@ import (
 
 func main() {
   godotenv.Load()
+  
+  // DB connection
+  if !database.IsConnected() {
+    panic("Error while connecting to the database")
+  }
 
+  // Echo creation
 	e := echo.New()
 
   // Static files
